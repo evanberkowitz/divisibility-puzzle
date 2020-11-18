@@ -535,4 +535,43 @@ We can list the possibilities we need to check,
 \end{center}
 and $g$ is either 3 or 7, while $i$ is the final unused odd number.
 
+Now we begin exhaustive checking.
 
+If $ac$ is 13 or 31 then $ghi$ must be 729.  1836547 is not divisible by 7 but 3816547 is!
+
+If $ac$ is 79 or 97 then $ghi$ must be 321.  Neither 7896543 nor 9876543 is divisible by 7.
+
+If $ac$ is 19 or 91 then $ghi$ must be 327 or 723.  None of the 4 possible numbers are divisible by 7.
+
+Therefore, the only choice is $ac=31$, $ghi=729$,
+
+The solution is
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&	x	&	x	&	1	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	2		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	2	&	x	&	x	\\
+	3		&	3	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	4		&	x	&	x	&	x	&	x	&	x	&	4	&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&	6	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	7		&	x	&	x	&	x	&	x	&	x	&	x	&	7	&	x	&	x	&	x	\\
+	8		&	x	&	8	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	9		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	9	&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	1	&	divides $3$,					\\
+	2	&	divides $38$,					\\
+	3	&	divides $381$,					\\
+	4	&	divides $3816$,					\\
+	5	&	divides $38165$,				\\
+	6	&	divides $381654$,				\\
+	7	&	divides $3816547$,				\\
+	8	&	divides $38165472$,				\\
+	9	&	divides $381654729$, and		\\
+	10	&	divides $3816547290$.
+\end{tabular}
+\end{center}
