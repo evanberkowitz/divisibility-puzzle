@@ -65,4 +65,35 @@ Therefore we can update the table and use the divisibility-by-5 rule,
 \end{tabular}
 \end{center}
 
+Note that any integer is divisible by 1, so the first constraint doesn't help us at all.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	2		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	3		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	4		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	7		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	8		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	9		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	1	&	divides $a$					& implies no constraint	\\
+	2	&	divides $ab$					\\
+	3	&	divides $abc$					\\
+	4	&	divides $abcd$					\\
+		&	\\
+	6	&	divides $abcdef$				\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $abcdefgh$				\\
+	9	&	divides $abcdefghi$				\\
+		&	
+\end{tabular}
+\end{center}
+
 
