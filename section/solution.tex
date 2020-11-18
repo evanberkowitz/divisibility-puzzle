@@ -283,4 +283,35 @@ Since $cd$ is divisible by 4 and starts with an odd digit, it must be one of 12,
 \end{center}
 Since all $c$ are allowed, we have now entirely spent our divisible-by-4 rule.
 
+With that knowledge of $d$, we see that
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$					\\
+	& 		\\
+	&		\\
+	3	&	divides $d+e+f$			& implies $def$ is 258 or 654		\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $fgh$					\\
+	3	&	divides $g+h+i$					\\
+		&	
+\end{tabular}
+\end{center}
+
 
