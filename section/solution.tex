@@ -345,4 +345,35 @@ That entails $f=4$ or $f=8$, both of which imply that the hundreds in $fgh$ is a
 \end{tabular}
 \end{center}
 
+Now we can reuse a trick from before.  If $gh$ is divisible by 8, then given the allowed values of $g$, it must be one of 16, 32, 72, or 96.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$		\\
+	& 		\\
+	&		\\
+	&	$def$ is 258 or 654		\\
+	7	&	divides $abcdefg$	\\
+	8	&	divides $gh$		& implies $h$ is either 2 or 6 \\
+	3	&	divides $g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
 
