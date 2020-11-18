@@ -1,1 +1,68 @@
 \section{Solution}
+
+Because each digit is unique, we can easily display our current knowledge of constraints in a table which we hope to fill in using knowledge from the divisibility properties in the problems statement.
+Let's fill in these constraints as best we can, and show every deduction.
+
+Starting with a blank table, we use the easiest rule---to be divisible by 10 a number must end in a zero.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&		&		&		&		&		&		&		&		&		\\
+	2		&		&		&		&		&		&		&		&		&		&		\\
+	3		&		&		&		&		&		&		&		&		&		&		\\
+	4		&		&		&		&		&		&		&		&		&		&		\\
+	5		&		&		&		&		&		&		&		&		&		&		\\
+	6		&		&		&		&		&		&		&		&		&		&		\\
+	7		&		&		&		&		&		&		&		&		&		&		\\
+	8		&		&		&		&		&		&		&		&		&		&		\\
+	9		&		&		&		&		&		&		&		&		&		&		\\
+	0		&		&		&		&		&		&		&		&		&		&		\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rl}
+	& \\
+	1	&	divides $a$,					\\
+	2	&	divides $ab$,					\\
+	3	&	divides $abc$,					\\
+	4	&	divides $abcd$,					\\
+	5	&	divides $abcde$,				\\
+	6	&	divides $abcdef$,				\\
+	7	&	divides $abcdefg$,				\\
+	8	&	divides $abcdefgh$,				\\
+	9	&	divides $abcdefghi$, and		\\
+	10	&	divides $abcdefghij$ which implies $j=0$.			
+\end{tabular}
+\end{center}
+
+Therefore we can update the table and use the divisibility-by-5 rule,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&		&		&		&		&		&		&		&		&	x	\\
+	2		&		&		&		&		&		&		&		&		&		&	x	\\
+	3		&		&		&		&		&		&		&		&		&		&	x	\\
+	4		&		&		&		&		&		&		&		&		&		&	x	\\
+	5		&		&		&		&		&		&		&		&		&		&	x	\\
+	6		&		&		&		&		&		&		&		&		&		&	x	\\
+	7		&		&		&		&		&		&		&		&		&		&	x	\\
+	8		&		&		&		&		&		&		&		&		&		&	x	\\
+	9		&		&		&		&		&		&		&		&		&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& \\
+	1	&	divides $a$						\\
+	2	&	divides $ab$					\\
+	3	&	divides $abc$					\\
+	4	&	divides $abcd$					\\
+	5	&	divides $abcde$				& implies $e=5$	\\
+	6	&	divides $abcdef$				\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $abcdefgh$				\\
+	9	&	divides $abcdefghi$				\\
+		&	
+\end{tabular}
+\end{center}
+
+
