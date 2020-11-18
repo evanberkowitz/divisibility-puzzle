@@ -503,4 +503,36 @@ So $def=654$, which eliminates one choice for $ghi$ (so that $g$ is 3 or 7), one
 \end{tabular}
 \end{center}
 
+We can list the possibilities we need to check,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&	x	&	x	&		&	x	\\
+	2		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	2	&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&	x	&	x	&	x	&	x	&	4	&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&	6	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&	8	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&	x	&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+2+c$		& implies $ac$ is one of 13, 19, 31, 79, 91, or 97 \\
+	& 		\\
+	&		\\
+	&		\\
+	7	&	divides $a8c654g$	\\
+		&	$ghi$ is one of 321, 327, 723, or 729 \\
+		&	
+		&	
+\end{tabular}
+\end{center}
+and $g$ is either 3 or 7, while $i$ is the final unused odd number.
+
 
