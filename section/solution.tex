@@ -1,1 +1,578 @@
 \section{Solution}
+
+Because each digit is unique, we can easily display our current knowledge of constraints in a table which we hope to fill in using knowledge from the divisibility properties in the problems statement.
+Let's fill in these constraints as best we can, and show every deduction.
+
+Starting with a blank table, we use the easiest rule---to be divisible by 10 a number must end in a zero.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&		&		&		&		&		&		&		&		&		\\
+	2		&		&		&		&		&		&		&		&		&		&		\\
+	3		&		&		&		&		&		&		&		&		&		&		\\
+	4		&		&		&		&		&		&		&		&		&		&		\\
+	5		&		&		&		&		&		&		&		&		&		&		\\
+	6		&		&		&		&		&		&		&		&		&		&		\\
+	7		&		&		&		&		&		&		&		&		&		&		\\
+	8		&		&		&		&		&		&		&		&		&		&		\\
+	9		&		&		&		&		&		&		&		&		&		&		\\
+	0		&		&		&		&		&		&		&		&		&		&		\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rl}
+	& \\
+	1	&	divides $a$,					\\
+	2	&	divides $ab$,					\\
+	3	&	divides $abc$,					\\
+	4	&	divides $abcd$,					\\
+	5	&	divides $abcde$,				\\
+	6	&	divides $abcdef$,				\\
+	7	&	divides $abcdefg$,				\\
+	8	&	divides $abcdefgh$,				\\
+	9	&	divides $abcdefghi$, and		\\
+	10	&	divides $abcdefghij$ which implies $j=0$.			
+\end{tabular}
+\end{center}
+
+Therefore we can update the table and use the divisibility-by-5 rule,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&		&		&		&		&		&		&		&		&	x	\\
+	2		&		&		&		&		&		&		&		&		&		&	x	\\
+	3		&		&		&		&		&		&		&		&		&		&	x	\\
+	4		&		&		&		&		&		&		&		&		&		&	x	\\
+	5		&		&		&		&		&		&		&		&		&		&	x	\\
+	6		&		&		&		&		&		&		&		&		&		&	x	\\
+	7		&		&		&		&		&		&		&		&		&		&	x	\\
+	8		&		&		&		&		&		&		&		&		&		&	x	\\
+	9		&		&		&		&		&		&		&		&		&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& \\
+	1	&	divides $a$						\\
+	2	&	divides $ab$					\\
+	3	&	divides $abc$					\\
+	4	&	divides $abcd$					\\
+	5	&	divides $abcde$				& implies $e=5$	\\
+	6	&	divides $abcdef$				\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $abcdefgh$				\\
+	9	&	divides $abcdefghi$				\\
+		&	
+\end{tabular}
+\end{center}
+
+Note that any integer is divisible by 1, so the first constraint doesn't help us at all.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	2		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	3		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	4		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	7		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	8		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	9		&		&		&		&		&	x	&		&		&		&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	1	&	divides $a$					& implies no constraint	\\
+	2	&	divides $ab$					\\
+	3	&	divides $abc$					\\
+	4	&	divides $abcd$					\\
+		&	\\
+	6	&	divides $abcdef$				\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $abcdefgh$				\\
+	9	&	divides $abcdefghi$				\\
+		&	
+\end{tabular}
+\end{center}
+
+The even rules mean that the corresponding final digits must be even.  This exhausts the even choices; the odd digits must be odd.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	2	&	divides $ab$					\\
+	3	&	divides $abc$					\\
+	4	&	divides $abcd$					\\
+		&	\\
+	6	&	divides $abcdef$				\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $abcdefgh$				\\
+	9	&	divides $abcdefghi$				\\
+		&	
+\end{tabular}
+\end{center}
+
+Let's leverage our knowledge of divisibility rules to simplify,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $abc$			& implies 3 divides $a+b+c$					\\
+	4	&	divides $abcd$			& implies 4 divides $cd$					\\
+		&	\\
+	6	&	divides $abcdef$		& implies 3 divides $a+b+c+d+e+f$			\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $abcdefgh$		& implies 8 divides $fgh$					\\
+	9	&	divides $abcdefghi$		& implies 9 divides $a+b+c+d+e+f+g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+So that our knowledge of the possibilities and constraints is
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$					\\
+	4	&	divides $cd$					\\
+		&	\\
+	3	&	divides $a+b+c+d+e+f$			\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $fgh$					\\
+	9	&	divides $a+b+c+d+e+f+g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+Since 3 divides $a+b+c$, if it is to also divide $a+b+c+d+e+f$, it must separately divide $d+e+f$.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$					\\
+	4	&	divides $cd$					\\
+		&	\\
+	3	&	divides $d+e+f$					\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $fgh$					\\
+	9	&	divides $a+b+c+d+e+f+g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+The sum of all the digits 0-9 is 45.  That makes the 9th rule look empty.  But knowing that 3 divides $a+b+c$ and $d+e+f$ we can conclude that 3 also divides $g+h+i$.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$					\\
+	4	&	divides $cd$					\\
+		&	\\
+	3	&	divides $d+e+f$					\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $fgh$					\\
+	3	&	divides $g+h+i$					\\
+		&	
+\end{tabular}
+\end{center}
+
+Since $cd$ is divisible by 4 and starts with an odd digit, it must be one of 12, 16, 32, 36, 72, 76, 92, or 96.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$					\\
+	4	&	divides $cd$				& implies $d$ is 2 or 6	\\
+		&	\\
+	3	&	divides $d+e+f$					\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $fgh$					\\
+	3	&	divides $g+h+i$					\\
+		&	
+\end{tabular}
+\end{center}
+Since all $c$ are allowed, we have now entirely spent our divisible-by-4 rule.
+
+With that knowledge of $d$, we see that
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&		&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$					\\
+	& 		\\
+	&		\\
+	3	&	divides $d+e+f$			& implies $def$ is 258 or 654		\\
+	7	&	divides $abcdefg$				\\
+	8	&	divides $fgh$					\\
+	3	&	divides $g+h+i$					\\
+		&	
+\end{tabular}
+\end{center}
+
+That entails $f=4$ or $f=8$, both of which imply that the hundreds in $fgh$ is a multiple of 400, which is divisible by 8.  Therefore,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$		\\
+	& 		\\
+	&		\\
+	&	$def$ is 258 or 654		\\
+	7	&	divides $abcdefg$	\\
+	8	&	divides $fgh$		& implies 8 divides $gh$	\\
+	3	&	divides $g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+Now we can reuse a trick from before.  If $gh$ is divisible by 8, then given the allowed values of $g$, it must be one of 16, 32, 72, or 96.
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&		&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&		&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$		\\
+	& 		\\
+	&		\\
+	&	$def$ is 258 or 654		\\
+	7	&	divides $abcdefg$	\\
+	8	&	divides $gh$		& implies $h$ is either 2 or 6 \\
+	3	&	divides $g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+Additionally, that means that $d$ and $h$ exhaust 2 and 6; so $b$ and $f$ must exhaust 4 and 8
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&	x	&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&	x	&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$		\\
+	& 		\\
+	&		\\
+	&	$def$ is 258 or 654		\\
+	7	&	divides $abcdefg$	\\
+		&	$gh$ is one of 16, 32, 72, or 96 \\
+	3	&	divides $g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+We can consider what the restrictions on $gh$ and the remaining possibilities of $i$ are divisible by 3,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&	x	&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&	x	&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$		\\
+	& 		\\
+	&		\\
+	&	$def$ is 258 or 654		\\
+	7	&	divides $abcdefg$	\\
+		&	$gh$ is one of 16, 32, 72, or 96 & implies $ghi$ is one of 321, 327, 723, 729, and 963 \\
+	3	&	divides $g+h+i$		\\
+		&	
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	2		&	x	&	x	&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&		&	x	&	x	&	x	&		&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&		&	x	&	x	&	x	&		&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&		&	x	&	x	&	x	&		&	x	&	x	&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+b+c$		\\
+	& 		\\
+	&		\\
+	&	$def$ is 258 or 654		\\
+	7	&	divides $abcdefg$	\\
+		&	$ghi$ is one of 321, 327, 723, 729, and 963 \\
+		&	
+		&	
+\end{tabular}
+\end{center}
+
+Now we have boiled things down as far as possible.  We proceed by guess-and-check (or, if you prefer, proof-by-contradiction)
+
+Suppose $def=258$.  Then $ghi=963$, the only choice without a 2, and $b=4$.  The divisibility-by-7 rule is for a number $a4c2589$.  Since $i=3$ the only choices for $a$ and $c$ are 1 and 7.  Neither $1472589$ nor $7412589$ is divisible by 7. 
+
+So $def=654$, which eliminates one choice for $ghi$ (so that $g$ is 3 or 7), one possibility for $b$ (so that it must be 8), one possibility for $h$ (so that it must be 2)
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&	x	&	x	&		&	x	\\
+	2		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	2	&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&	x	&	x	&	x	&	x	&	4	&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&	6	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&	8	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&	x	&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+8+c$		& implies 3 divides $a+2+c$\\
+	& 		\\
+	&		\\
+	&		\\
+	7	&	divides $a8c654g$	\\
+		&	$ghi$ is one of 321, 327, 723, or 729 \\
+		&	
+		&	
+\end{tabular}
+\end{center}
+
+We can list the possibilities we need to check,
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&		&	x	&		&	x	&	x	&	x	&	x	&	x	&		&	x	\\
+	2		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	2	&	x	&	x	\\
+	3		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	4		&	x	&	x	&	x	&	x	&	x	&	4	&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&	6	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	7		&		&	x	&		&	x	&	x	&	x	&		&	x	&		&	x	\\
+	8		&	x	&	8	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	9		&		&	x	&		&	x	&	x	&	x	&	x	&	x	&		&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	& 		\\
+	& 		\\
+	3	&	divides $a+2+c$		& implies $ac$ is one of 13, 19, 31, 79, 91, or 97 \\
+	& 		\\
+	&		\\
+	&		\\
+	7	&	divides $a8c654g$	\\
+		&	$ghi$ is one of 321, 327, 723, or 729 \\
+		&	
+		&	
+\end{tabular}
+\end{center}
+and $g$ is either 3 or 7, while $i$ is the final unused odd number.
+
+Now we begin exhaustive checking.
+
+\begin{itemize}
+	\item If $ac$ is 13 or 31 then $ghi$ must be 729.  1836547 is not divisible by 7 but 3816547 is!
+
+	\item If $ac$ is 79 or 97 then $ghi$ must be 321.  Neither 7896543 nor 9876543 is divisible by 7.
+
+	\item If $ac$ is 19 or 91 then $ghi$ must be 327 or 723.  None of the 4 possible numbers are divisible by 7.
+\end{itemize}
+Therefore, the only choice is $ac=31$, $ghi=729$,
+
+The solution is
+\begin{center}
+\begin{tabular}{ccccccccccc}
+			&	$a$	&	$b$	&	$c$	&	$d$	&	$e$	&	$f$	&	$g$	&	$h$	&	$i$	&	$j$	\\
+	1		&	x	&	x	&	1	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	2		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	2	&	x	&	x	\\
+	3		&	3	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	4		&	x	&	x	&	x	&	x	&	x	&	4	&	x	&	x	&	x	&	x	\\
+	5		&	x	&	x	&	x	&	x	&	5	&	x	&	x	&	x	&	x	&	x	\\
+	6		&	x	&	x	&	x	&	6	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	7		&	x	&	x	&	x	&	x	&	x	&	x	&	7	&	x	&	x	&	x	\\
+	8		&	x	&	8	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	\\
+	9		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	9	&	x	\\
+	0		&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	x	&	0	\\
+\end{tabular}
+\hspace{1cm}\vline\hspace{1cm}
+\begin{tabular}{rll}
+	& 		\\
+	1	&	divides $3$,					\\
+	2	&	divides $38$,					\\
+	3	&	divides $381$,					\\
+	4	&	divides $3816$,					\\
+	5	&	divides $38165$,				\\
+	6	&	divides $381654$,				\\
+	7	&	divides $3816547$,				\\
+	8	&	divides $38165472$,				\\
+	9	&	divides $381654729$, and		\\
+	10	&	divides $3816547290$.
+\end{tabular}
+\end{center}
